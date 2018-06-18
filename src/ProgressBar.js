@@ -58,25 +58,25 @@ export default class progressBar {
 
   update(progress) {
     const transitionDuration = 1500
-    const arcTween = function (newAngle) {
-        return function(d) {
+    const arcTween = (newAngle) => {
+        return (d) => {
             var interpolate = d3.interpolate(d.endAngle, newAngle + this.tau_start);
-            return function(t) {
+            return (t) => {
                 d.endAngle = interpolate(t);
             return this.arc(d);
-            }.bind(this);
-        }.bind(this);
-    }.bind(this);
+            };
+        };
+    };
 
     this.progressArc
         .transition()
         .duration(transitionDuration)
         .attrTween('d', arcTween(progress / 100 * 1.6 * Math.PI));
           
-    this.progressLabel.transition().duration(transitionDuration).tween('bla', function () {
-        return function (t) {
+    this.progressLabel.transition().duration(transitionDuration).tween('bla',  () => {
+        return (t) => {
             this.progressLabel.text(Math.round(progress * t));
-        }.bind(this);
-    }.bind(this));
+        };
+    });
   }
 }
