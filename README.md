@@ -13,5 +13,7 @@ wrap your code and pass value to update function:
 
 -Donut Chart
 
-var myChart = new zaytsD3.DonutChart(".myClass");
-myChart.update([{val: 74}, {val: 12}, {val: 68}, {val: 51}]);
+wrap your code and pass array with values to update function:
+
+    var myChart = new zaytsD3.DonutChart(".myClass");
+    myChart.update([{val: 74}, {val: 12}, {val: 68}, {val: 51}]);
